@@ -41,6 +41,8 @@ kind: "package-library"
 
 ### 共享模块表
 
+启动模块表还为图标名称改为尺寸无关形式之前构建的第三方 bundle 提供旧的尺寸后缀名称。每个别名保留原来的默认尺寸，并接受显式 `size` 覆盖。这些别名仅用于运行时兼容；`ui-primitives` 包的统一导出仍只提供当前图标名称。
+
 `PLATFORM_MODULES`（位于 `src/platform.ts`）列出外壳预置的共享模块——React、Cordis 与静态 UI 库——并与 `PRELOADED_CLIENT_EXTERNALS`（parser 预载的运行时行）一起定义每个动态 bundle 解析所依据的隐式 external 基座。`dsh.client.external` 只添加基座之外的精确请求；参见[共享模块与模块图](../AGENTS.md#shared-modules-and-the-module-graph)。
 
 ### 配置

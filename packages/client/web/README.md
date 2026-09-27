@@ -41,6 +41,8 @@ The boot page uses plain DOM and local CSS, so bundle and plugin-activation fail
 
 ### The shared module table
 
+The boot table also provides the retired size-suffixed icon names for third-party bundles built before the size-neutral rename. Each alias preserves its legacy default dimensions and accepts an explicit `size` override. These aliases are runtime compatibility entries; the `ui-primitives` package barrel continues to expose only the current icon names.
+
 `PLATFORM_MODULES` (in `src/platform.ts`) names the shell-seeded shared modules — React, Cordis, and static UI libraries — and together with `PRELOADED_CLIENT_EXTERNALS` (the parser-preloaded runtime row) defines the implicit external baseline every dynamic bundle resolves against. `dsh.client.external` adds only exact non-baseline requests; see [shared modules and the module graph](../AGENTS.md#shared-modules-and-the-module-graph).
 
 ### Configuration

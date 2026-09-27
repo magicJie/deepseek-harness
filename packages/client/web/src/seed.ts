@@ -16,6 +16,7 @@ import * as UiSlots from '@deepseek-ai/dsh-client-ui-slots'
 import * as UiPrimitives from '@deepseek-ai/dsh-client-ui-primitives'
 import * as UiDockkit from '@deepseek-ai/dsh-client-ui-dockkit'
 import type { PlatformModule } from './platform.ts'
+import { LEGACY_ICON_EXPORTS } from './legacy-icons.tsx'
 
 /**
  * Build the static table handed to the module loader at boot.
@@ -33,7 +34,8 @@ export function getStaticModules(): Record<string, unknown> {
     '@deepseek-ai/cordis': Cordis,
     '@deepseek-ai/dsh-client-store': ClientStore,
     '@deepseek-ai/dsh-client-ui-slots': UiSlots,
-    '@deepseek-ai/dsh-client-ui-primitives': UiPrimitives,
+    // Keep pre-rename third-party bundles renderable without changing the package barrel.
+    '@deepseek-ai/dsh-client-ui-primitives': { ...UiPrimitives, ...LEGACY_ICON_EXPORTS },
     '@deepseek-ai/dsh-client-ui-dockkit': UiDockkit,
   } satisfies Record<PlatformModule, unknown>
 }
